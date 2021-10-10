@@ -1,12 +1,12 @@
 '''
  * LED control through a Web server
  *
- * Name    = Web Server - Led Control
+ * Name = Web Server - Led Control
  * Version = 1.0.1
- * Update Date: 10/10/2021
- * Author  = Jhonatan Lamiña
- * e-mail  = contacto@jhonatanlamina.com
- * Url     = www.jhonatanlamina.com
+ * Update Date = 10/10/2021
+ * Author = Jhonatan Lamiña
+ * e-mail = contacto@jhonatanlamina.com
+ * Web = www.jhonatanlamina.com
  *
  * Copyright (c) Jhonatan Lamiña - All rights reserved
 '''
@@ -25,6 +25,7 @@ import gc
 gc.collect()
 
 #WiFi Connection
+#Replace the SSID and KEY data with those of your Wi-Fi network
 ssid = 'WiFi NETWORK'
 key = '*wifi-network*'
 indicator = Pin(0, Pin.OUT)
