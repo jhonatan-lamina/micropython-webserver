@@ -55,8 +55,8 @@ else:
     print('Connected\nIP: %s\nSUBNET: %s\nGATEWAY: %s\nDNS: %s' % wlan.ifconfig()[0:4])
 
 #Output Pin
-output1 = Pin(5, Pin.OUT)
-output2 = Pin(16, Pin.OUT)
+output1 = Pin(16, Pin.OUT)
+output2 = Pin(5, Pin.OUT)
 
 #Web Page
 def web_page():  
@@ -65,7 +65,7 @@ def web_page():
 <html>
 <head>
 	<title>MicroPython Web Server</title>
-    <link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.A8WOluXYcZZ6j5M72poa4wHaEL?pid=ImgDet&rs=1">
+    <link rel="shortcut icon" href="https://www.adafruit.com/includes/templates/adafruit2013/images/micropython/snek.png">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
@@ -159,8 +159,10 @@ while True:
         if gc.mem_free() < 102000:
             gc.collect()
         conn, addr = tcp_socket.accept()
+        conn.settimeout(3.0)
         print('New connection from: %s' % str(addr[0]))
         request = conn.recv(1024)
+        conn.settimeout(None)
         request = str(request)
         #print('Request: %s' %request)
         if request.find('/?control1=on') == 6:
