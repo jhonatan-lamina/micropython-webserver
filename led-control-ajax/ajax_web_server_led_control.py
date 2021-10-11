@@ -177,10 +177,8 @@ while True:
         if gc.mem_free() < 102000:
             gc.collect()
         conn, addr = tcp_socket.accept()
-        conn.settimeout(3.0)
         print('New connection from: %s' % str(addr[0]))
         request = conn.recv(1024)
-        conn.settimeout(None)
         request = str(request)
         #print('Request:  %s' % request)
         if request.find('/?control1=on') == 6:
